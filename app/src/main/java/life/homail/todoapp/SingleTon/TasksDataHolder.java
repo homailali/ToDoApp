@@ -13,19 +13,16 @@ public class TasksDataHolder {
 
 
 
-    public void addOneTask(String task){
+    public void addOneRemainingTask(String task){
         this.remainingTasks.add(task);
     }
-    public void addManyTasks(ArrayList<String> remainingTasks){
-        this.remainingTasks.addAll(remainingTasks);
-    }
-    public String getTaskAt(int position){
+    public String getRemainingTaskAt(int position){
         return this.remainingTasks.get(position);
     }
-    public void deleteTaskAt(int position){
+    public void deleteRemainingTaskAt(int position){
         this.remainingTasks.remove(position);
     }
-    public ArrayList<String> getTasks(){
+    public ArrayList<String> getRemainingTasks(){
         return this.remainingTasks;
     }
 
@@ -38,8 +35,14 @@ public class TasksDataHolder {
     public String getCompletedTaskAt(int position){
         return this.completedTasks.get(position);
     }
+    public ArrayList<String> getCompletedTasks(){
+        return this.completedTasks;
+    }
 
 
+    public ArrayList<String> getDeletedTasks(){
+        return this.deletedTasks;
+    }
     public String getDeletedTaskAt(int position){
         return this.deletedTasks.get(position);
     }

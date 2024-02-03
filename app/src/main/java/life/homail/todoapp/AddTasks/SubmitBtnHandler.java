@@ -17,7 +17,7 @@ public class SubmitBtnHandler implements View.OnClickListener {
         if (String.valueOf(this.addTasksMain.addTaskView.textInputEditText.getText()).isEmpty()) {
             this.addTasksMain.addTaskView.textInputEditText.setHint("Invalid task");
         } else {
-            TasksDataHolder.getInstance().addOneTask(String.valueOf(this.addTasksMain.addTaskView.textInputEditText.getText()));
+            TasksDataHolder.getInstance().addOneRemainingTask(String.valueOf(this.addTasksMain.addTaskView.textInputEditText.getText()));
             this.addTasksMain.addTaskView.textInputEditText.setText(null);
             this.addTasksMain.addTaskView.textInputEditText.setHint("Task added successfully");
         }

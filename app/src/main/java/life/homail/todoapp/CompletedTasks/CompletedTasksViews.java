@@ -32,8 +32,8 @@ public class CompletedTasksViews {
     }
 
     private void initializeSomeContainers(){
-        this.ctCardView=this.completedTasksMain.findViewById(R.id.ctCardView);
-        this.ctRecyclerView=this.completedTasksMain.findViewById(R.id.ctRecyclerView);
+        this.ctCardView=this.completedTasksMain.findViewById(R.id.dtCardView);
+        this.ctRecyclerView=this.completedTasksMain.findViewById(R.id.dtRecyclerView);
     }
 
     private void setEventHandler(){

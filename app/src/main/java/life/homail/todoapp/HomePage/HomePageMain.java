@@ -12,6 +12,8 @@ public class HomePageMain extends AppCompatActivity {
         super.setContentView(R.layout.home_xml);
         this.doSomeThingsAfterLayoutHasBeenSetup();
 
+        System.out.println("Home page on create triggered");
+
     }
     private void doSomeThingsAfterLayoutHasBeenSetup(){
         this.homePageViews=new HomePageViews(this);

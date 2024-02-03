@@ -27,8 +27,8 @@ public class RemainingTasksViews {
 
     }
     private void initializeContainers(){
-        this.rtCardView=this.remainingTasksMain.findViewById(R.id.ctCardView);
-        this.rtRecyclerView=this.remainingTasksMain.findViewById(R.id.ctRecyclerView);
+        this.rtCardView=this.remainingTasksMain.findViewById(R.id.dtCardView);
+        this.rtRecyclerView=this.remainingTasksMain.findViewById(R.id.dtRecyclerView);
     }
     private void setEventHandler(){
         this.navHomeBtn.setOnClickListener(this.remainingTasksMain.rtNavBtnHandler);

@@ -2,7 +2,6 @@ package life.homail.todoapp.CompletedTasks;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import life.homail.todoapp.R;
 public class CompletedTasksMain extends AppCompatActivity {
     protected CompletedTasksViews completedTasksViews;
@@ -16,7 +15,6 @@ public class CompletedTasksMain extends AppCompatActivity {
         this.adapterSettings();
         this.recyclerViewSettings();
     }
-
     private void recyclerViewSettings(){
         this.completedTasksViews.ctRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         this.completedTasksViews.ctRecyclerView.setAdapter(this.ctAdapter);

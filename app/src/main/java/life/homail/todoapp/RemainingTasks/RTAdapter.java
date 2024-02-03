@@ -20,32 +20,32 @@ public class RTAdapter extends RecyclerView.Adapter<RTAdapter.ViewHolder> {
 
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(this.context).inflate(R.layout.row_with_delete_complete_btn_design,parent,false);
+        View view= LayoutInflater.from(this.context).inflate(R.layout.row_design_for_remaining_tasks,parent,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
     }
 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.userTask.setText(TasksDataHolder.getInstance().getTasks().get(position));
+        holder.userTask.setText(TasksDataHolder.getInstance().getRemainingTasks().get(position));
         holder.deleteBtn.setOnClickListener(e->this.deleteAt(position));
         holder.completedBtn.setOnClickListener(e->this.markCompleteAt(position));
     }
 
     protected void deleteAt(int position){
-        TasksDataHolder.getInstance().addDeletedTask(TasksDataHolder.getInstance().getTaskAt(position));
-        TasksDataHolder.getInstance().deleteTaskAt(position);
+        TasksDataHolder.getInstance().addDeletedTask(TasksDataHolder.getInstance().getRemainingTaskAt(position));
+        TasksDataHolder.getInstance().deleteRemainingTaskAt(position);
         this.remainingTasksMain.rtAdapter.notifyDataSetChanged();
     }
     protected void markCompleteAt(int position){
-        TasksDataHolder.getInstance().addCompletedTask(TasksDataHolder.getInstance().getTaskAt(position));
-        TasksDataHolder.getInstance().deleteTaskAt(position);
+        TasksDataHolder.getInstance().addCompletedTask(TasksDataHolder.getInstance().getRemainingTaskAt(position));
+        TasksDataHolder.getInstance().deleteRemainingTaskAt(position);
         this.remainingTasksMain.rtAdapter.notifyDataSetChanged();
     }
 
 
 
     public int getItemCount() {
-        return TasksDataHolder.getInstance().getTasks().size();
+        return TasksDataHolder.getInstance().getRemainingTasks().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -55,7 +55,7 @@ public class RTAdapter extends RecyclerView.Adapter<RTAdapter.ViewHolder> {
         public ViewHolder(View itemView){
             super(itemView);
             this.deleteBtn=itemView.findViewById(R.id.deleteBtn);
-            this.completedBtn=itemView.findViewById(R.id.completedBtn);
+            this.completedBtn=itemView.findViewById(R.id.restoreBtn);
             this.userTask=itemView.findViewById(R.id.userTask);
         }
     }

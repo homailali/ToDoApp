@@ -2,6 +2,9 @@ package life.homail.todoapp.deletedTasks;
 
 import android.widget.Button;
 
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import life.homail.todoapp.R;
 
 public class DeletedTaskViews {
@@ -9,6 +12,8 @@ public class DeletedTaskViews {
     protected Button navHomeBtn;
     protected Button navCompletedBtn;
     protected Button navRemainingTasks;
+    protected RecyclerView dtRecyclerView;
+    protected CardView dtCardView;
 
     protected DeletedTaskViews(DeletedTasksMain deletedTasksMain) {
         this.deletedTasksMain = deletedTasksMain;
@@ -21,6 +26,9 @@ public class DeletedTaskViews {
         this.navHomeBtn=this.deletedTasksMain.findViewById(R.id.home);
         this.navCompletedBtn=this.deletedTasksMain.findViewById(R.id.completedTasks);
         this.navRemainingTasks=this.deletedTasksMain.findViewById(R.id.remainingTasks);
+
+        this.dtRecyclerView=this.deletedTasksMain.findViewById(R.id.dtRecyclerView);
+        this.dtCardView=this.deletedTasksMain.findViewById(R.id.dtCardView);
     }
     private void setEventListeners(){
         this.navHomeBtn.setOnClickListener(this.deletedTasksMain.dtNavBtnHandler);

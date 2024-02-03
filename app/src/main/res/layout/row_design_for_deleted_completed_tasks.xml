@@ -6,6 +6,31 @@
     android:layout_height="wrap_content"
     android:background="#373F47"
     >
+
+    <Button
+        android:id="@+id/deleteBtn"
+        android:layout_width="25dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#373F47"
+        android:drawableTop="@drawable/delete"
+        app:cornerRadius="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/restoreBtn"
+        android:layout_width="25dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#373F47"
+        android:drawableTop="@drawable/restore"
+        app:cornerRadius="0dp"
+        app:layout_constraintStart_toEndOf="@id/deleteBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/userTask"
         android:layout_width="0dp"
@@ -18,7 +43,7 @@
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/restoreBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
