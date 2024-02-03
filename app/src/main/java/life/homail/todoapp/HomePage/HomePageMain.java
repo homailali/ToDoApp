@@ -1,6 +1,7 @@
 package life.homail.todoapp.HomePage;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import life.homail.todoapp.R;
 public class HomePageMain extends AppCompatActivity {
     protected HomePageViews homePageViews;
@@ -12,10 +13,43 @@ public class HomePageMain extends AppCompatActivity {
         super.setContentView(R.layout.home_xml);
         this.doSomeThingsAfterLayoutHasBeenSetup();
 
-        System.out.println("Home page on create triggered");
+        Log.d("Life cycle","Home page on create triggered");
 
     }
     private void doSomeThingsAfterLayoutHasBeenSetup(){
         this.homePageViews=new HomePageViews(this);
+    }
+
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        Log.d("Life cycle","Home page on start triggered");
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Log.d("Life cycle","Home page on resume triggered");
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.d("Life cycle","Home page on pause triggered");
+    }
+    @Override
+    protected void onStop(){
+        super.onStop();
+        Log.d("Life cycle","Home page on stop triggered");
+    }
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        Log.d("Life cycle","Home page on restart triggered");
+    }
+    @Override
+    protected void onDestroy(){
+        Log.d("Life cycle","Home page on destroy triggered");
+
+        super.onDestroy();
     }
 }

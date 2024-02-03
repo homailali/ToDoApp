@@ -64,26 +64,6 @@
                 android:drawableTop="@drawable/home"
                 app:cornerRadius="0dp"
                 />
-
-            <Button
-                android:backgroundTint="#373F47"
-                android:id="@+id/remainingTasks"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:paddingTop="15dp"
-                android:drawableTop="@drawable/remainingtasks"
-                app:cornerRadius="0dp"
-                />
-
-            <Button
-                android:id="@+id/deletedTasks"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:backgroundTint="#373F47"
-                android:drawableTop="@drawable/deletedtasks"
-                android:paddingTop="15dp"
-                app:cornerRadius="0dp" />
-
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

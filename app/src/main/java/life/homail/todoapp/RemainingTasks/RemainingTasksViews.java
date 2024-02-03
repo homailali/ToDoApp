@@ -7,8 +7,6 @@ public class RemainingTasksViews {
     // Fields
     private RemainingTasksMain remainingTasksMain;
     protected Button navHomeBtn;
-    protected Button navDeletedTasksBtn;
-    protected Button navCompletedTasksBtn;
     protected CardView rtCardView;
     protected RecyclerView rtRecyclerView;
     // Constructor
@@ -21,8 +19,6 @@ public class RemainingTasksViews {
     // Methods
     private void initializeNavViews(){
         this.navHomeBtn=this.remainingTasksMain.findViewById(R.id.homeBtn);
-        this.navDeletedTasksBtn=this.remainingTasksMain.findViewById(R.id.deletedTasks);
-        this.navCompletedTasksBtn=this.remainingTasksMain.findViewById(R.id.completedTasks);
 
 
     }
@@ -32,7 +28,5 @@ public class RemainingTasksViews {
     }
     private void setEventHandler(){
         this.navHomeBtn.setOnClickListener(this.remainingTasksMain.rtNavBtnHandler);
-        this.navDeletedTasksBtn.setOnClickListener(this.remainingTasksMain.rtNavBtnHandler);
-        this.navCompletedTasksBtn.setOnClickListener(this.remainingTasksMain.rtNavBtnHandler);
     }
 }

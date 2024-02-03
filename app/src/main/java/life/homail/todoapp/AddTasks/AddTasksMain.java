@@ -20,7 +20,6 @@ public class AddTasksMain extends AppCompatActivity{
     }
     // nav btn handler
     protected void changeViewToHome(){
-        Intent intent=new Intent(this, HomePageMain.class);
-        this.startActivity(intent);
+        super.finish();
     }
 }

@@ -8,10 +8,12 @@ import life.homail.todoapp.deletedTasks.DeletedTasksMain;
 public class NavBtnHandler implements View.OnClickListener{
     private HomePageMain homePageMain;
     public NavBtnHandler(HomePageMain homePageMain) {
+
         this.homePageMain = homePageMain;
     }
 
     public void onClick(View view){
+
         this.findTheButtonClicked(view);
     }
 

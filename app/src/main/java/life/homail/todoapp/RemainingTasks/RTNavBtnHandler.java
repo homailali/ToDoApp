@@ -11,19 +11,10 @@ public class RTNavBtnHandler implements View.OnClickListener{
         this.remainingTasksMain=remainingTasksMain;
     }
     public void onClick(View view){
-        this.findButtonAndPerformActionAccordingly(view);
+        this.changeActivity();
     }
-    private void findButtonAndPerformActionAccordingly(View view){
-        if (view.getId()==this.remainingTasksMain.remainingTasksViews.navHomeBtn.getId()){
-            this.changeActivity(HomePageMain.class);
-        } else if (view.getId()==this.remainingTasksMain.remainingTasksViews.navDeletedTasksBtn.getId()){
-            this.changeActivity(DeletedTasksMain.class);
-        } else if (view.getId()==this.remainingTasksMain.remainingTasksViews.navCompletedTasksBtn.getId()){
-            this.changeActivity(CompletedTasksMain.class);
-        }
-    }
-    private void changeActivity(Class<? extends AppCompatActivity> classToSwitch){
-        Intent intent=new Intent(this.remainingTasksMain,classToSwitch);
-        this.remainingTasksMain.startActivity(intent);
+
+    private void changeActivity(){
+        this.remainingTasksMain.finish();
     }
 }
