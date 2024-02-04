@@ -1,5 +1,7 @@
 package life.homail.todoapp.RemainingTasks;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import life.homail.todoapp.R;
@@ -9,6 +11,7 @@ public class RemainingTasksViews {
     protected Button navHomeBtn;
     protected CardView rtCardView;
     protected RecyclerView rtRecyclerView;
+    protected TextView someInfoForTheUserAtTheTop;
     // Constructor
     public RemainingTasksViews(RemainingTasksMain remainingTasksMain) {
         this.remainingTasksMain = remainingTasksMain;
@@ -19,8 +22,7 @@ public class RemainingTasksViews {
     // Methods
     private void initializeNavViews(){
         this.navHomeBtn=this.remainingTasksMain.findViewById(R.id.homeBtn);
-
-
+        this.someInfoForTheUserAtTheTop=this.remainingTasksMain.findViewById(R.id.someInfoForTheUserAtTheTop);
     }
     private void initializeContainers(){
         this.rtCardView=this.remainingTasksMain.findViewById(R.id.dtCardView);

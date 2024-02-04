@@ -33,13 +33,14 @@ public class DtAdapter extends RecyclerView.Adapter<DtAdapter.ViewHolder>{
        TasksDataHolder.getInstance().addOneRemainingTask(TasksDataHolder.getInstance().getDeletedTaskAt(position));
        TasksDataHolder.getInstance().getDeletedTasks().remove(position);
        super.notifyDataSetChanged();
+       this.deletedTasksMain.dtUserInfoSettings.dtUserInfoSettingsMain("Task restored");
     }
     private void deleteBtnHandler(int position){
         TasksDataHolder.getInstance().getDeletedTasks().remove(position);
         super.notifyDataSetChanged();
+        this.deletedTasksMain.dtUserInfoSettings.dtUserInfoSettingsMain("Task permanently deleted");
     }
     // BindSettingsEnd
-
 
     public int getItemCount(){
         return TasksDataHolder.getInstance().getDeletedTasks().size();

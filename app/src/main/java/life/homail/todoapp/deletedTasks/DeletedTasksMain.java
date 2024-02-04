@@ -5,9 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import life.homail.todoapp.R;
 public class DeletedTasksMain extends AppCompatActivity {
+    protected DtAdapter dtAdapter;
     protected DeletedTaskViews deletedTaskViews;
     protected DTNavBtnHandler dtNavBtnHandler=new DTNavBtnHandler(this);
-    protected DtAdapter dtAdapter;
+    protected DtUserInfoSettings dtUserInfoSettings=new DtUserInfoSettings(this);
     @Override
     public void onCreate(Bundle getCodeFromParent){
         super.onCreate(getCodeFromParent);
@@ -15,6 +16,7 @@ public class DeletedTasksMain extends AppCompatActivity {
         this.doSomeThingsAfterLayoutHasBeenSetUp();
         this.dtAdapterSettings();
         this.dtRecyclerViewSettings();
+        this.dtUserInfoSettings.resetNoOfDeletedTasks();
     }
 
 

@@ -2,6 +2,7 @@ package life.homail.todoapp.CompletedTasks;
 
 
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,7 @@ public class CompletedTasksViews {
     protected Button navHomeBtn;
     protected CardView ctCardView;
     protected RecyclerView ctRecyclerView;
+    protected TextView someInfoForTheUserAtTheTop;
 
 
     protected CompletedTasksViews (CompletedTasksMain completedTasksMain){
@@ -25,6 +27,7 @@ public class CompletedTasksViews {
 
     private void initializeViews(){
        this.navHomeBtn=this.completedTasksMain.findViewById(R.id.homeBtn);
+       this.someInfoForTheUserAtTheTop=this.completedTasksMain.findViewById(R.id.someInfoForTheUserAtTheTop);
     }
 
     private void initializeSomeContainers(){

@@ -4,9 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import life.homail.todoapp.R;
 public class CompletedTasksMain extends AppCompatActivity {
+    protected CtAdapter ctAdapter;
     protected CompletedTasksViews completedTasksViews;
     protected CTNavBtnHandler ctNavBtnHandler =new CTNavBtnHandler(this);
-    protected CtAdapter ctAdapter;
+    protected CtUserSettingsHandler ctUserSettingsHandler=new CtUserSettingsHandler(this);
     @Override
     public void onCreate(Bundle getCodeFromParent){
         super.onCreate(getCodeFromParent);
@@ -14,6 +15,7 @@ public class CompletedTasksMain extends AppCompatActivity {
         this.doSomeThingAfterLayoutHasBeenSetUp();
         this.adapterSettings();
         this.recyclerViewSettings();
+        this.ctUserSettingsHandler.resetCompletedCountOnTextView();
     }
     private void recyclerViewSettings(){
         this.completedTasksViews.ctRecyclerView.setLayoutManager(new LinearLayoutManager(this));

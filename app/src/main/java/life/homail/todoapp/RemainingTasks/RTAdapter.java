@@ -1,4 +1,5 @@
 package life.homail.todoapp.RemainingTasks;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,11 +36,14 @@ public class RTAdapter extends RecyclerView.Adapter<RTAdapter.ViewHolder> {
         TasksDataHolder.getInstance().addDeletedTask(TasksDataHolder.getInstance().getRemainingTaskAt(position));
         TasksDataHolder.getInstance().deleteRemainingTaskAt(position);
         this.remainingTasksMain.rtAdapter.notifyDataSetChanged();
+        this.remainingTasksMain.rtUserInfoSettings.rtUserInfoSettingsMain("Task marked as deleted");
     }
+
     protected void markCompleteAt(int position){
         TasksDataHolder.getInstance().addCompletedTask(TasksDataHolder.getInstance().getRemainingTaskAt(position));
         TasksDataHolder.getInstance().deleteRemainingTaskAt(position);
         this.remainingTasksMain.rtAdapter.notifyDataSetChanged();
+        this.remainingTasksMain.rtUserInfoSettings.rtUserInfoSettingsMain("Task marked as completed");
     }
 
 
@@ -47,7 +51,6 @@ public class RTAdapter extends RecyclerView.Adapter<RTAdapter.ViewHolder> {
     public int getItemCount() {
         return TasksDataHolder.getInstance().getRemainingTasks().size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         Button deleteBtn;
         Button completedBtn;

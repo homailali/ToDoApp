@@ -32,10 +32,12 @@ public class CtAdapter extends RecyclerView.Adapter<CtAdapter.ViewHolder> {
         TasksDataHolder.getInstance().addOneRemainingTask(TasksDataHolder.getInstance().getCompletedTaskAt(position));
         TasksDataHolder.getInstance().getCompletedTasks().remove(position);
         super.notifyDataSetChanged();
+        this.completedTasksMain.ctUserSettingsHandler.ctUserSettingsMain("Task restored");
     }
     private void deleteBtnHandler(int position){
         TasksDataHolder.getInstance().getCompletedTasks().remove(position);
         super.notifyDataSetChanged();
+        this.completedTasksMain.ctUserSettingsHandler.ctUserSettingsMain("Task permanently deleted");
     }
     // Bind settings end
     public int getItemCount() {
