@@ -45,7 +45,7 @@ public class RTUserInfoSettings {
     protected void resetRemainingTasksCount(){
         this.remainingTasksMain.remainingTasksViews.someInfoForTheUserAtTheTop.setAlpha(1f);
         if (TasksDataHolder.getInstance().getRemainingTasks().isEmpty()){
-            this.remainingTasksMain.remainingTasksViews.someInfoForTheUserAtTheTop.setText("No remaining tasks");
+            this.remainingTasksMain.remainingTasksViews.someInfoForTheUserAtTheTop.setText("No task remaining");
         } else {
             this.remainingTasksMain.remainingTasksViews.someInfoForTheUserAtTheTop.setText(
                     TasksDataHolder.getInstance().getRemainingTasks().size()>1
