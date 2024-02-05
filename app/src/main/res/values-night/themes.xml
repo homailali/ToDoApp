@@ -3,5 +3,7 @@
     <style name="Base.Theme.ToDoApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:statusBarColor">#373F47</item>
+        <item name="android:textColor">#49454F</item>
     </style>
 </resources>

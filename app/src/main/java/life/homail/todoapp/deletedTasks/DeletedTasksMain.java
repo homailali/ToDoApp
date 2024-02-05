@@ -9,6 +9,7 @@ public class DeletedTasksMain extends AppCompatActivity {
     protected DeletedTaskViews deletedTaskViews;
     protected DTNavBtnHandler dtNavBtnHandler=new DTNavBtnHandler(this);
     protected DtUserInfoSettings dtUserInfoSettings=new DtUserInfoSettings(this);
+    protected DeRestoreAndDeleteHandler deRestoreAndDeleteHandler =new DeRestoreAndDeleteHandler(this);
     @Override
     public void onCreate(Bundle getCodeFromParent){
         super.onCreate(getCodeFromParent);
@@ -16,7 +17,6 @@ public class DeletedTasksMain extends AppCompatActivity {
         this.doSomeThingsAfterLayoutHasBeenSetUp();
         this.dtAdapterSettings();
         this.dtRecyclerViewSettings();
-        this.dtUserInfoSettings.resetNoOfDeletedTasks();
     }
 
 

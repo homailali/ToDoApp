@@ -8,6 +8,7 @@ public class CompletedTasksMain extends AppCompatActivity {
     protected CompletedTasksViews completedTasksViews;
     protected CTNavBtnHandler ctNavBtnHandler =new CTNavBtnHandler(this);
     protected CtUserSettingsHandler ctUserSettingsHandler=new CtUserSettingsHandler(this);
+    protected CoDeleteAndRestoreHandler coDeleteAndRestoreHandler=new CoDeleteAndRestoreHandler(this);
     @Override
     public void onCreate(Bundle getCodeFromParent){
         super.onCreate(getCodeFromParent);
@@ -15,7 +16,6 @@ public class CompletedTasksMain extends AppCompatActivity {
         this.doSomeThingAfterLayoutHasBeenSetUp();
         this.adapterSettings();
         this.recyclerViewSettings();
-        this.ctUserSettingsHandler.resetCompletedCountOnTextView();
     }
     private void recyclerViewSettings(){
         this.completedTasksViews.ctRecyclerView.setLayoutManager(new LinearLayoutManager(this));

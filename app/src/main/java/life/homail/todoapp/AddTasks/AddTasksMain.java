@@ -16,8 +16,9 @@ public class AddTasksMain extends AppCompatActivity{
     }
     private void doSomeThingWhenLayoutIsSetUp(){
         this.addTaskView=new AddTaskView(this);
-
     }
+
+
     // nav btn handler
     protected void changeViewToHome(){
         super.finish();

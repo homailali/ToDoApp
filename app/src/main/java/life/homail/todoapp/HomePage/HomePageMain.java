@@ -2,54 +2,46 @@ package life.homail.todoapp.HomePage;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import life.homail.todoapp.ClassesInstances.HomePageMainInstance;
 import life.homail.todoapp.R;
-public class HomePageMain extends AppCompatActivity {
+import life.homail.todoapp.SingleTon.TasksDataHolderAndOtherStaticMethods;
+public class HomePageMain extends AppCompatActivity{
     protected HomePageViews homePageViews;
+    protected SpSettings spSettings=new SpSettings(this);
     protected NavBtnHandler navBtnHandler=new NavBtnHandler(this);
     protected PlusTaskBtnHandler plusTaskBtnHandler=new PlusTaskBtnHandler(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.home_xml);
+        HomePageMainInstance.initializeHomePageMain(this);
         this.doSomeThingsAfterLayoutHasBeenSetup();
-
-        Log.i("Life cycle","Home page on create triggered");
-
+        Log.d("onCreate","On Create triggered");
     }
+
+
+
+
+
+
+
+
+
+
+
     private void doSomeThingsAfterLayoutHasBeenSetup(){
         this.homePageViews=new HomePageViews(this);
-    }
-
-
-    @Override
-    protected void onStart(){
-        super.onStart();
-        Log.i("Life cycle","Home page on start triggered");
+        if (TasksDataHolderAndOtherStaticMethods.ifAllowedToGetSpData()) this.spSettings.SpSettingsMain();
     }
     @Override
     protected void onResume(){
         super.onResume();
-        Log.i("Life cycle","Home page on resume triggered");
+        this.setValuesForTheNumberOfTasks();
     }
-    @Override
-    protected void onPause(){
-        super.onPause();
-        Log.i("Life cycle","Home page on pause triggered");
-    }
-    @Override
-    protected void onStop(){
-        super.onStop();
-        Log.i("Life cycle","Home page on stop triggered");
-    }
-    @Override
-    protected void onRestart(){
-        super.onRestart();
-        Log.i("Life cycle","Home page on restart triggered");
-    }
-    @Override
-    protected void onDestroy(){
-        Log.i("Life cycle","Home page on destroy triggered");
-
-        super.onDestroy();
+    protected void setValuesForTheNumberOfTasks(){
+        this.homePageViews.noOfDeletedTasks.setText("Deleted "+ TasksDataHolderAndOtherStaticMethods.getInstance().getDeletedTasks().size());
+        this.homePageViews.noOfCompletedTasks.setText("Completed "+ TasksDataHolderAndOtherStaticMethods.getInstance().getCompletedTasks().size());
+        this.homePageViews.noOfRemainingTasks.setText("Remaining "+ TasksDataHolderAndOtherStaticMethods.getInstance().getRemainingTasks().size());
     }
 }

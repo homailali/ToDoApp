@@ -2,13 +2,16 @@ package life.homail.todoapp.SingleTon;
 
 import java.util.ArrayList;
 
-public class TasksDataHolder {
-    private static final TasksDataHolder TASKS_DATA_HOLDER=new TasksDataHolder();
+public class TasksDataHolderAndOtherStaticMethods {
+
+    private static boolean bool=true;
+
+    private static final TasksDataHolderAndOtherStaticMethods TASKS_DATA_HOLDER=new TasksDataHolderAndOtherStaticMethods();
     private ArrayList<String> remainingTasks=new ArrayList<>();
     private ArrayList<String> deletedTasks=new ArrayList<>();
     private ArrayList<String> completedTasks=new ArrayList<>();
-    public static TasksDataHolder getInstance(){
-        return TasksDataHolder.TASKS_DATA_HOLDER;
+    public static TasksDataHolderAndOtherStaticMethods getInstance(){
+        return TasksDataHolderAndOtherStaticMethods.TASKS_DATA_HOLDER;
     }
 
 
@@ -48,5 +51,13 @@ public class TasksDataHolder {
     }
     public void addDeletedTask(String deletedTask){
         this.deletedTasks.add(deletedTask);
+    }
+
+    public static boolean ifAllowedToGetSpData(){
+        if (bool){
+            bool = false;
+            return true;
+        }
+        return false;
     }
 }

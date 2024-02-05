@@ -1,5 +1,4 @@
 package life.homail.todoapp.RemainingTasks;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import life.homail.todoapp.R;
-import life.homail.todoapp.SingleTon.TasksDataHolder;
+import life.homail.todoapp.SingleTon.TasksDataHolderAndOtherStaticMethods;
 public class RTAdapter extends RecyclerView.Adapter<RTAdapter.ViewHolder> {
 
     private Context context;
@@ -27,29 +26,12 @@ public class RTAdapter extends RecyclerView.Adapter<RTAdapter.ViewHolder> {
     }
 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.userTask.setText(TasksDataHolder.getInstance().getRemainingTasks().get(position));
-        holder.deleteBtn.setOnClickListener(e->this.deleteAt(position));
-        holder.completedBtn.setOnClickListener(e->this.markCompleteAt(position));
+        holder.userTask.setText(TasksDataHolderAndOtherStaticMethods.getInstance().getRemainingTasks().get(position));
+        holder.deleteBtn.setOnClickListener(e-> this.remainingTasksMain.deleteAndCompleteBtnHandler.deleteAt(position));
+        holder.completedBtn.setOnClickListener(e->this.remainingTasksMain.deleteAndCompleteBtnHandler.markCompleteAt(position));
     }
-
-    protected void deleteAt(int position){
-        TasksDataHolder.getInstance().addDeletedTask(TasksDataHolder.getInstance().getRemainingTaskAt(position));
-        TasksDataHolder.getInstance().deleteRemainingTaskAt(position);
-        this.remainingTasksMain.rtAdapter.notifyDataSetChanged();
-        this.remainingTasksMain.rtUserInfoSettings.rtUserInfoSettingsMain("Task marked as deleted");
-    }
-
-    protected void markCompleteAt(int position){
-        TasksDataHolder.getInstance().addCompletedTask(TasksDataHolder.getInstance().getRemainingTaskAt(position));
-        TasksDataHolder.getInstance().deleteRemainingTaskAt(position);
-        this.remainingTasksMain.rtAdapter.notifyDataSetChanged();
-        this.remainingTasksMain.rtUserInfoSettings.rtUserInfoSettingsMain("Task marked as completed");
-    }
-
-
-
     public int getItemCount() {
-        return TasksDataHolder.getInstance().getRemainingTasks().size();
+        return TasksDataHolderAndOtherStaticMethods.getInstance().getRemainingTasks().size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         Button deleteBtn;

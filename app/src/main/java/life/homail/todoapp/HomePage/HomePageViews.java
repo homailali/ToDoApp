@@ -1,6 +1,8 @@
 package life.homail.todoapp.HomePage;
 import android.content.SharedPreferences;
 import android.widget.Button;
+import android.widget.TextView;
+
 import life.homail.todoapp.R;
 public class HomePageViews {
     // Fields
@@ -9,6 +11,9 @@ public class HomePageViews {
     protected Button navCompletedTasks;
     protected Button navRemainingTasks;
     protected Button navDeletedTasks;
+    protected TextView noOfDeletedTasks;
+    protected TextView noOfCompletedTasks;
+    protected TextView noOfRemainingTasks;
     // Constructor
     protected HomePageViews(HomePageMain homePageMain){
         this.homePageMain = homePageMain;
@@ -25,6 +30,9 @@ public class HomePageViews {
         this.navRemainingTasks=this.homePageMain.findViewById(R.id.remainingTasks);
         this.navCompletedTasks=this.homePageMain.findViewById(R.id.completedTasks);
         this.navDeletedTasks=this.homePageMain.findViewById(R.id.deletedTasks);
+        this.noOfDeletedTasks=this.homePageMain.findViewById(R.id.noOfDeleted);
+        this.noOfCompletedTasks=this.homePageMain.findViewById(R.id.noOfCompleted);
+        this.noOfRemainingTasks=this.homePageMain.findViewById(R.id.noOfRemaining);
     }
 
 

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import life.homail.todoapp.R;
-import life.homail.todoapp.SingleTon.TasksDataHolder;
+import life.homail.todoapp.SingleTon.TasksDataHolderAndOtherStaticMethods;
 public class DtAdapter extends RecyclerView.Adapter<DtAdapter.ViewHolder>{
     private Context context;
     private DeletedTasksMain deletedTasksMain;
@@ -25,25 +25,15 @@ public class DtAdapter extends RecyclerView.Adapter<DtAdapter.ViewHolder>{
 
     // Bind Settings
     public void onBindViewHolder(ViewHolder holder,int position){
-        holder.userTasks.setText(TasksDataHolder.getInstance().getDeletedTaskAt(position));
-        holder.restoreBtn.setOnClickListener(e->this.restoreHandler(position));
-        holder.deleteBtn.setOnClickListener(e->this.deleteBtnHandler(position));
+        holder.userTasks.setText(TasksDataHolderAndOtherStaticMethods.getInstance().getDeletedTaskAt(position));
+        holder.restoreBtn.setOnClickListener(e->this.deletedTasksMain.deRestoreAndDeleteHandler.restoreHandler(position));
+        holder.deleteBtn.setOnClickListener(e->this.deletedTasksMain.deRestoreAndDeleteHandler.deleteBtnHandler(position));
     }
-    private void restoreHandler(int position){
-       TasksDataHolder.getInstance().addOneRemainingTask(TasksDataHolder.getInstance().getDeletedTaskAt(position));
-       TasksDataHolder.getInstance().getDeletedTasks().remove(position);
-       super.notifyDataSetChanged();
-       this.deletedTasksMain.dtUserInfoSettings.dtUserInfoSettingsMain("Task restored");
-    }
-    private void deleteBtnHandler(int position){
-        TasksDataHolder.getInstance().getDeletedTasks().remove(position);
-        super.notifyDataSetChanged();
-        this.deletedTasksMain.dtUserInfoSettings.dtUserInfoSettingsMain("Task permanently deleted");
-    }
+
     // BindSettingsEnd
 
     public int getItemCount(){
-        return TasksDataHolder.getInstance().getDeletedTasks().size();
+        return TasksDataHolderAndOtherStaticMethods.getInstance().getDeletedTasks().size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView userTasks;
