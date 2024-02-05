@@ -30,6 +30,4 @@ public class RemainingTasksMain extends AppCompatActivity {
     private void doSomeThingsAfterLayoutHasBeenSetUp(){
         this.remainingTasksViews=new RemainingTasksViews(this);
     }
-
-
 }

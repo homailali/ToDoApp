@@ -1,49 +1,22 @@
 package life.homail.todoapp.RemainingTasks;
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.os.Handler;
-import android.util.Log;
-import android.view.View;
-import androidx.annotation.NonNull;
 import life.homail.todoapp.SingleTon.TasksDataHolder;
 public class RTUserInfoSettings {
+    // Fields
     private RemainingTasksMain remainingTasksMain;
-    private AnimatorHandlerInner animatorHandlerInner=new AnimatorHandlerInner(this);
-    public RTUserInfoSettings(RemainingTasksMain remainingTasksMain) {
+    private Handler handler=new Handler();
+    private int handlerPostDelayedTime;
+    // Constructor
+    public RTUserInfoSettings(RemainingTasksMain remainingTasksMain){
         this.remainingTasksMain = remainingTasksMain;
     }
+    // Methods
     protected void rtUserInfoSettingsMain(String title){
+        this.handlerPostDelayedTime+=2000;
         this.remainingTasksMain.remainingTasksViews.someInfoForTheUserAtTheTop.setText(title);
-        ObjectAnimator objectAnimator=ObjectAnimator.ofFloat(
-                this.remainingTasksMain.remainingTasksViews.someInfoForTheUserAtTheTop,"alpha",1f,0f
-        );
-        objectAnimator.setDuration(2000);
-        objectAnimator.start();
-        objectAnimator.addListener(this.animatorHandlerInner);
-    }
-
-    private static class AnimatorHandlerInner implements Animator.AnimatorListener{
-        // Fields
-        private RTUserInfoSettings rtUserInfoSettings;
-        // Constructor
-        public AnimatorHandlerInner(RTUserInfoSettings rtUserInfoSettings){
-
-            this.rtUserInfoSettings = rtUserInfoSettings;
-        }
-        // Methods
-        @Override
-        public void onAnimationEnd(@NonNull Animator animation) {
-            this.rtUserInfoSettings.resetRemainingTasksCount();
-        }
-        @Override
-        public void onAnimationStart(@NonNull Animator animation){}
-        @Override
-        public void onAnimationCancel(@NonNull Animator animation){}
-        @Override
-        public void onAnimationRepeat(@NonNull Animator animation){}
+        handler.postDelayed(()->this.resetRemainingTasksCount(),this.handlerPostDelayedTime);
     }
     protected void resetRemainingTasksCount(){
-        this.remainingTasksMain.remainingTasksViews.someInfoForTheUserAtTheTop.setAlpha(1f);
         if (TasksDataHolder.getInstance().getRemainingTasks().isEmpty()){
             this.remainingTasksMain.remainingTasksViews.someInfoForTheUserAtTheTop.setText("No task remaining");
         } else {
@@ -51,7 +24,8 @@ public class RTUserInfoSettings {
                     TasksDataHolder.getInstance().getRemainingTasks().size()>1
                             ?TasksDataHolder.getInstance().getRemainingTasks().size()+" remaining tasks"
                             :"1 remaining task"
-                    );
+            );
         }
+        this.handlerPostDelayedTime=0;
     }
 }
