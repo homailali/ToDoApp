@@ -24,24 +24,22 @@ public class SubmitBtnHandler implements View.OnClickListener {
         } else {
             TasksDataHolderAndOtherStaticMethods.getInstance().addOneRemainingTask(String.valueOf(this.addTasksMain.addTaskView.textInputEditText.getText()));
             this.addTasksMain.addTaskView.textInputEditText.setHint("Task added successfully");
-            this.addDataToRemainingSharedPreference(String.valueOf(
-                    this.addTasksMain.addTaskView.textInputEditText.getText()
-            ));
             this.addTasksMain.addTaskView.textInputEditText.setText(null);
+            this.deleteAndAddDataToRemainingSharedPreference();
         }
     }
-    private void addDataToRemainingSharedPreference(String dataToAdd){
+    private void deleteAndAddDataToRemainingSharedPreference(){
         SharedPreferences sharedPreferences= HomePageMainInstance.homePageMain.getSharedPreferences(SPCodeAndKeys.RE_DATA_SP_CODE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putString(String.valueOf(SPCodeAndKeys.reDataCountKey),dataToAdd);
-        SPCodeAndKeys.reDataCountKey++;
+        editor.clear();
         editor.apply();
-        this.storeReDataCountKeyInSp();
+        this.againEnterDataToReSp(editor);
+        editor.apply();
     }
-    private void storeReDataCountKeyInSp(){
-        SharedPreferences sharedPreferences= HomePageMainInstance.homePageMain.getSharedPreferences(SPCodeAndKeys.RE_COUNT_SP_CODE,Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putInt(SPCodeAndKeys.keyToStoreReDataCountKey,SPCodeAndKeys.reDataCountKey);
-        editor.apply();
+    private void againEnterDataToReSp(SharedPreferences.Editor editor){
+        for (int i=0;i<TasksDataHolderAndOtherStaticMethods.getInstance().getRemainingTasks().size();i++){
+            editor.putString(String.valueOf(i),TasksDataHolderAndOtherStaticMethods.getInstance().getRemainingTaskAt(i));
+        }
+        SPCodeAndKeys.reDataCountKey=TasksDataHolderAndOtherStaticMethods.getInstance().getRemainingTasks().size();
     }
 }

@@ -2,11 +2,13 @@ package life.homail.todoapp.AddTasks;
 import android.widget.Button;
 import life.homail.todoapp.R;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 public class AddTaskView {
     private AddTasksMain addTasksMain;
     protected Button submitBtn;
     protected Button navHomeBtn;
     protected TextInputEditText textInputEditText;
+    protected TextInputLayout editTextParent;
     protected AddTaskView(AddTasksMain addTasksMain){
         this.addTasksMain=addTasksMain;
         this.initializeViews();
@@ -17,6 +19,7 @@ public class AddTaskView {
         this.submitBtn=this.addTasksMain.findViewById(R.id.submitTask);
         this.navHomeBtn=this.addTasksMain.findViewById(R.id.homePage);
         this.textInputEditText=this.addTasksMain.findViewById(R.id.editText);
+        this.editTextParent=this.addTasksMain.findViewById(R.id.editTextParent);
     }
     private void setEventHandlersForButtons(){
         this.submitBtn.setOnClickListener(this.addTasksMain.submitBtnHandler);

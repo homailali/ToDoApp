@@ -1,8 +1,6 @@
 package life.homail.todoapp.HomePage;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-
 import life.homail.todoapp.ClassesInstances.HomePageMainInstance;
 import life.homail.todoapp.R;
 import life.homail.todoapp.SingleTon.TasksDataHolderAndOtherStaticMethods;
@@ -17,19 +15,7 @@ public class HomePageMain extends AppCompatActivity{
         super.setContentView(R.layout.home_xml);
         HomePageMainInstance.initializeHomePageMain(this);
         this.doSomeThingsAfterLayoutHasBeenSetup();
-        Log.d("onCreate","On Create triggered");
     }
-
-
-
-
-
-
-
-
-
-
-
     private void doSomeThingsAfterLayoutHasBeenSetup(){
         this.homePageViews=new HomePageViews(this);
         if (TasksDataHolderAndOtherStaticMethods.ifAllowedToGetSpData()) this.spSettings.SpSettingsMain();

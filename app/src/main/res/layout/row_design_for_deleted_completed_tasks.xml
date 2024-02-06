@@ -23,27 +23,28 @@
         android:id="@+id/restoreBtn"
         android:layout_width="25dp"
         android:layout_height="43dp"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="#373F47"
         android:drawableTop="@drawable/restore"
         app:cornerRadius="0dp"
-        app:layout_constraintStart_toEndOf="@id/deleteBtn"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/userTask"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="5dp"
         android:fontFamily="@font/chewy"
         android:text="Hy homail i know there is a issue between you chosing java or kotlin but stick with java do not wast your time with kotlin"
         android:textColor="@color/white"
+        android:gravity="center"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/restoreBtn"
+        app:layout_constraintEnd_toStartOf="@+id/restoreBtn"
+        app:layout_constraintStart_toEndOf="@+id/deleteBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
