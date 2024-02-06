@@ -72,6 +72,7 @@
                 android:paddingTop="15dp"
                 android:drawableTop="@drawable/remainingtasks"
                 app:cornerRadius="0dp"
+                app:rippleColor="#20FFFFFF"
                 />
             <Button
                 android:backgroundTint="#373F47"
@@ -81,6 +82,7 @@
                 android:paddingTop="15dp"
                 android:drawableTop="@drawable/completedtasks"
                 app:cornerRadius="0dp"
+                app:rippleColor="#20FFFFFF"
                 />
             <Button
                 android:backgroundTint="#373F47"
@@ -90,6 +92,7 @@
                 android:paddingTop="15dp"
                 android:drawableTop="@drawable/deletedtasks"
                 app:cornerRadius="0dp"
+                app:rippleColor="#20FFFFFF"
                 />
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
@@ -104,6 +107,7 @@
         android:drawableTop="@drawable/add"
         android:paddingTop="12dp"
         app:cornerRadius="15dp"
+        app:rippleColor="#20FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
 

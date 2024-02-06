@@ -42,7 +42,9 @@
                 android:backgroundTint="#373F47"
                 android:drawableTop="@drawable/home"
                 android:paddingTop="15dp"
-                app:cornerRadius="0dp" />
+                app:cornerRadius="0dp"
+                app:rippleColor="#20FFFFFF"
+            />
 
 
         </LinearLayout>

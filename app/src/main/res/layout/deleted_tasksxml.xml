@@ -73,6 +73,7 @@
                 android:paddingTop="15dp"
                 android:drawableTop="@drawable/home"
                 app:cornerRadius="0dp"
+                app:rippleColor="#20FFFFFF"
                 />
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>

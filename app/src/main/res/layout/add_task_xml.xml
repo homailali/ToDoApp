@@ -58,6 +58,7 @@
         app:cornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#20FFFFFF"
         app:layout_constraintTop_toBottomOf="@+id/editTextParent" />
 
 
@@ -86,6 +87,7 @@
                 android:paddingTop="15dp"
                 android:drawableTop="@drawable/home"
                 app:cornerRadius="0dp"
+                app:rippleColor="#20FFFFFF"
                 />
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
