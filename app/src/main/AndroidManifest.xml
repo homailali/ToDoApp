@@ -15,6 +15,7 @@
         android:forceDarkAllowed="false"
         >
         <activity
+            android:screenOrientation="portrait"
             android:name=".HomePage.HomePageMain"
             android:exported="true">
             <intent-filter>
@@ -23,10 +24,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddTasks.AddTasksMain"/>
-        <activity android:name=".CompletedTasks.CompletedTasksMain"/>
-        <activity android:name=".deletedTasks.DeletedTasksMain"/>
-        <activity android:name=".RemainingTasks.RemainingTasksMain"/>
+        <activity
+            android:name=".AddTasks.AddTasksMain"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".CompletedTasks.CompletedTasksMain"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".deletedTasks.DeletedTasksMain"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".RemainingTasks.RemainingTasksMain"
+            android:screenOrientation="portrait"
+            />
 
         <meta-data
             android:name="preloaded_fonts"
