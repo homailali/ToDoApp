@@ -38,7 +38,6 @@ public class RemainingTasksDB extends SQLiteOpenHelper {
         sqLiteDatabase.close();
         return temp!=-1;
     }
-
     public ArrayList<TaskModel> getAllRemainingTasksFromDB(){
         ArrayList<TaskModel> returnList=new ArrayList<>();
         SQLiteDatabase sqLiteDatabase=super.getReadableDatabase();
