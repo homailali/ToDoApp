@@ -1,63 +1,50 @@
 package life.homail.todoapp.SingleTon;
-
 import java.util.ArrayList;
 
-public class TasksDataHolderAndOtherStaticMethods {
+import life.homail.todoapp.HomePage.HomePageMain;
+import life.homail.todoapp.Model.TaskModel;
+public class SingleTon {
+    private static final SingleTon TASKS_DATA_HOLDER=new SingleTon();
+    private HomePageMain homePageMain;
+    private ArrayList<TaskModel> remainingTasksArr=new ArrayList<>();
+    private ArrayList<TaskModel> deletedTasksArr=new ArrayList<>();
+    private ArrayList<TaskModel> completedTasksArr=new ArrayList<>();
+    public static SingleTon getSingleTon(){
+        return SingleTon.TASKS_DATA_HOLDER;
+    }
 
-    private static boolean bool=true;
+    public HomePageMain getHomePageMain() {
+        return homePageMain;
+    }
 
-    private static final TasksDataHolderAndOtherStaticMethods TASKS_DATA_HOLDER=new TasksDataHolderAndOtherStaticMethods();
-    private ArrayList<String> remainingTasks=new ArrayList<>();
-    private ArrayList<String> deletedTasks=new ArrayList<>();
-    private ArrayList<String> completedTasks=new ArrayList<>();
-    public static TasksDataHolderAndOtherStaticMethods getInstance(){
-        return TasksDataHolderAndOtherStaticMethods.TASKS_DATA_HOLDER;
+    public void setHomePageMain(HomePageMain homePageMain) {
+        this.homePageMain = homePageMain;
+    }
+
+    public ArrayList<TaskModel> getRemainingTasksArr() {
+        return remainingTasksArr;
+    }
+
+    public void setRemainingTasksArr(ArrayList<TaskModel> remainingTasksArr) {
+        this.remainingTasksArr = remainingTasksArr;
+    }
+
+    public ArrayList<TaskModel> getDeletedTasksArr() {
+        return deletedTasksArr;
+    }
+
+    public void setDeletedTasksArr(ArrayList<TaskModel> deletedTasksArr) {
+        this.deletedTasksArr = deletedTasksArr;
+    }
+
+    public ArrayList<TaskModel> getCompletedTasksArr() {
+        return completedTasksArr;
+    }
+
+    public void setCompletedTasksArr(ArrayList<TaskModel> completedTasksArr) {
+        this.completedTasksArr = completedTasksArr;
     }
 
 
 
-    public void addOneRemainingTask(String task){
-        this.remainingTasks.add(task);
-    }
-    public String getRemainingTaskAt(int position){
-        return this.remainingTasks.get(position);
-    }
-    public void deleteRemainingTaskAt(int position){
-        this.remainingTasks.remove(position);
-    }
-    public ArrayList<String> getRemainingTasks(){
-        return this.remainingTasks;
-    }
-
-
-
-
-    public void addCompletedTask(String completedTask){
-        this.completedTasks.add(completedTask);
-    }
-    public String getCompletedTaskAt(int position){
-        return this.completedTasks.get(position);
-    }
-    public ArrayList<String> getCompletedTasks(){
-        return this.completedTasks;
-    }
-
-
-    public ArrayList<String> getDeletedTasks(){
-        return this.deletedTasks;
-    }
-    public String getDeletedTaskAt(int position){
-        return this.deletedTasks.get(position);
-    }
-    public void addDeletedTask(String deletedTask){
-        this.deletedTasks.add(deletedTask);
-    }
-
-    public static boolean ifAllowedToGetSpData(){
-        if (bool){
-            bool = false;
-            return true;
-        }
-        return false;
-    }
 }

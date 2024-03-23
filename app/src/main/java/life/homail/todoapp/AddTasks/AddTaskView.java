@@ -24,7 +24,6 @@ public class AddTaskView {
     private void setEventHandlersForButtons(){
         this.submitBtn.setOnClickListener(this.addTasksMain.submitBtnHandler);
         this.navHomeBtn.setOnClickListener(e->this.addTasksMain.changeViewToHome());
-        this.textInputEditText.addTextChangedListener(this.addTasksMain.editTextFieldHandler);
     }
     private void setEditTextHintText(){
 

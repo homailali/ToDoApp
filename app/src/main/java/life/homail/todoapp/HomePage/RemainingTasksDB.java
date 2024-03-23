@@ -1,2 +1,63 @@
-package life.homail.todoapp.HomePage;public class RemainingTasksDb {
+package life.homail.todoapp.HomePage;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+
+import life.homail.todoapp.Model.TaskModel;
+public class RemainingTasksDB extends SQLiteOpenHelper {
+    // fields
+    private static final Integer DB_VERSION=1;
+    private final static String TABLE_NAME="RemainingTasksTable";
+    private final static String ACTUAL_TASKS_COLUMN_NAME="RemainingTasks";
+    private static final String DB_NAME="RemainingTasksDB";
+    // constructor
+    public RemainingTasksDB(HomePageMain homePageMain){
+        super(homePageMain,DB_NAME,null,DB_VERSION);
+    }
+    // methods
+    public void onCreate(SQLiteDatabase sqLiteDatabase){
+        String query=
+                "create table "+TABLE_NAME+
+                        "("+
+                        ACTUAL_TASKS_COLUMN_NAME+" text"
+                        +")"
+                ;
+        sqLiteDatabase.execSQL(query);
+    }
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase,int oldVersion,int newVersion){}
+    public boolean addRemainingTaskToDB(TaskModel taskModel){
+        SQLiteDatabase sqLiteDatabase=super.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(ACTUAL_TASKS_COLUMN_NAME, taskModel.getActualTask());
+        long temp=sqLiteDatabase.insert(TABLE_NAME,null,contentValues);
+        sqLiteDatabase.close();
+        return temp!=-1;
+    }
+
+    public ArrayList<TaskModel> getAllRemainingTasksFromDB(){
+        ArrayList<TaskModel> returnList=new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase=super.getReadableDatabase();
+        Cursor cursor=sqLiteDatabase.rawQuery("select * from "+TABLE_NAME,null);
+        if (cursor.moveToFirst()){
+            do {
+                String completedTask= cursor.getString(1);
+                TaskModel taskModel =new TaskModel(completedTask);
+                returnList.add(taskModel);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return returnList;
+    }
+    public boolean deleteRemainingTaskFromDB(TaskModel taskModel){
+        SQLiteDatabase sqLiteDatabase=super.getWritableDatabase();
+        long temp=sqLiteDatabase.delete(TABLE_NAME,ACTUAL_TASKS_COLUMN_NAME+"=?",new String[]{taskModel.getActualTask()});
+        sqLiteDatabase.close();
+        return temp!=0;
+    }
+
+
 }

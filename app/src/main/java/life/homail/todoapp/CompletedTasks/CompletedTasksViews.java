@@ -14,8 +14,7 @@ public class CompletedTasksViews {
     protected Button navHomeBtn;
     protected CardView ctCardView;
     protected RecyclerView ctRecyclerView;
-    protected TextView someInfoForTheUserAtTheTop;
-
+    private TextView noTasksCompletedTv;
 
     protected CompletedTasksViews (CompletedTasksMain completedTasksMain){
         this.completedTasksMain=completedTasksMain;
@@ -26,8 +25,8 @@ public class CompletedTasksViews {
 
 
     private void initializeViews(){
-       this.navHomeBtn=this.completedTasksMain.findViewById(R.id.homeBtn);
-       this.someInfoForTheUserAtTheTop=this.completedTasksMain.findViewById(R.id.someInfoForTheUserAtTheTop);
+        this.navHomeBtn=this.completedTasksMain.findViewById(R.id.homeBtn);
+        this.noTasksCompletedTv=this.completedTasksMain.findViewById(R.id.noTasksCompletedTv);
     }
 
     private void initializeSomeContainers(){
@@ -37,5 +36,13 @@ public class CompletedTasksViews {
 
     private void setEventHandler(){
         this.navHomeBtn.setOnClickListener(this.completedTasksMain.ctNavBtnHandler);
+    }
+
+    public TextView getNoTasksCompletedTv() {
+        return noTasksCompletedTv;
+    }
+
+    public void setNoTasksCompletedTv(TextView noTasksCompletedTv) {
+        this.noTasksCompletedTv = noTasksCompletedTv;
     }
 }

@@ -7,7 +7,6 @@ import life.homail.todoapp.R;
 public class AddTasksMain extends AppCompatActivity{
     protected AddTaskView addTaskView;
     protected SubmitBtnHandler submitBtnHandler=new SubmitBtnHandler(this);
-    protected EditTextFieldHandler editTextFieldHandler=new EditTextFieldHandler(this);
     @Override
     public void onCreate(Bundle getCodeFromParent){
         super.onCreate(getCodeFromParent);

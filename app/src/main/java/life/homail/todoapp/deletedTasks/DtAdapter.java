@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import life.homail.todoapp.R;
-import life.homail.todoapp.SingleTon.TasksDataHolderAndOtherStaticMethods;
+import life.homail.todoapp.SingleTon.SingleTon;
 public class DtAdapter extends RecyclerView.Adapter<DtAdapter.ViewHolder>{
     private Context context;
     private DeletedTasksMain deletedTasksMain;
@@ -19,21 +19,17 @@ public class DtAdapter extends RecyclerView.Adapter<DtAdapter.ViewHolder>{
     @NonNull
     public ViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
         View view= LayoutInflater.from(this.context).inflate(R.layout.row_design_for_deleted_completed_tasks,parent,false);
-        ViewHolder viewHolder=new ViewHolder(view);
-        return viewHolder;
+        return new ViewHolder(view);
     }
-
     // Bind Settings
     public void onBindViewHolder(ViewHolder holder,int position){
-        holder.userTasks.setText(TasksDataHolderAndOtherStaticMethods.getInstance().getDeletedTaskAt(position));
-        holder.restoreBtn.setOnClickListener(e->this.deletedTasksMain.deRestoreAndDeleteHandler.restoreHandler(position));
-        holder.deleteBtn.setOnClickListener(e->this.deletedTasksMain.deRestoreAndDeleteHandler.deleteBtnHandler(position));
+        holder.userTasks.setText(SingleTon.getSingleTon().getDeletedTasksArr().get(position).getActualTask());
+        holder.restoreBtn.setOnClickListener(e->this.deletedTasksMain.getDtRestoreBtnHandler().DtRestoreBtnHandlerMain(SingleTon.getSingleTon().getDeletedTasksArr().get(position)));
+        holder.deleteBtn.setOnClickListener(e->this.deletedTasksMain.getDtDeleteBtnHandler().dtDeleteBtnHandlerMain(SingleTon.getSingleTon().getDeletedTasksArr().get(position)));
     }
-
     // BindSettingsEnd
-
     public int getItemCount(){
-        return TasksDataHolderAndOtherStaticMethods.getInstance().getDeletedTasks().size();
+        return SingleTon.getSingleTon().getDeletedTasksArr().size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView userTasks;

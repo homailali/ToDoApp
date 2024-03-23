@@ -17,31 +17,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/someInfoForTheUserAtTheTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:textSize="20dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/completedTasksHeading" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/dtCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:backgroundTint="#FFFAFB"
-        android:layout_marginBottom="15dp"
+        android:backgroundTint="@color/white"
+        android:layout_marginBottom="20dp"
+        app:cardElevation="50dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/someInfoForTheUserAtTheTop">
+        app:layout_constraintTop_toBottomOf="@+id/completedTasksHeading">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/dtRecyclerView"
@@ -78,5 +68,17 @@
                 />
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
-
+    <TextView
+        android:id="@+id/noTasksCompletedTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="3000dp"
+        android:fontFamily="@font/baloo_paaji"
+        android:lineSpacingExtra="-13dp"
+        android:text="No tasks completed"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dtCardView"
+        app:layout_constraintEnd_toEndOf="@+id/dtCardView"
+        app:layout_constraintStart_toStartOf="@+id/dtCardView"
+        app:layout_constraintTop_toTopOf="@+id/dtCardView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

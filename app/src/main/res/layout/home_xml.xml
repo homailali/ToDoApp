@@ -40,7 +40,7 @@
         android:fontFamily="@font/antic"
         android:gravity="center_horizontal"
 
-        android:text="Hy! 🖐 i am homail ali an inspiring java developer i created this app to remind me about the tasks i need to do still this app needs a lot of modifications but i am working on it soon i will add a database to it so keep in touch to contact me you can message at homailali56@Gmail.com"
+        android:text="Hy! 🖐 i am homail ali an inspiring java developer i created this app to remind me about the tasks i need to do still this app needs a lot of modifications but i am working on it so keep in touch to contact me you can message at homailali56@Gmail.com"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

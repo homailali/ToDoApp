@@ -11,7 +11,7 @@ public class RemainingTasksViews {
     protected Button navHomeBtn;
     protected CardView rtCardView;
     protected RecyclerView rtRecyclerView;
-    protected TextView someInfoForTheUserAtTheTop;
+    private TextView noTasksRemainingTv;
     // Constructor
     public RemainingTasksViews(RemainingTasksMain remainingTasksMain) {
         this.remainingTasksMain = remainingTasksMain;
@@ -22,7 +22,7 @@ public class RemainingTasksViews {
     // Methods
     private void initializeNavViews(){
         this.navHomeBtn=this.remainingTasksMain.findViewById(R.id.homeBtn);
-        this.someInfoForTheUserAtTheTop=this.remainingTasksMain.findViewById(R.id.someInfoForTheUserAtTheTop);
+        this.noTasksRemainingTv=this.remainingTasksMain.findViewById(R.id.noTasksRemainingTv);
     }
     private void initializeContainers(){
         this.rtCardView=this.remainingTasksMain.findViewById(R.id.dtCardView);
@@ -30,5 +30,13 @@ public class RemainingTasksViews {
     }
     private void setEventHandler(){
         this.navHomeBtn.setOnClickListener(this.remainingTasksMain.rtNavBtnHandler);
+    }
+
+    public TextView getNoTasksRemainingTv() {
+        return noTasksRemainingTv;
+    }
+
+    public void setNoTasksRemainingTv(TextView noTasksRemainingTv) {
+        this.noTasksRemainingTv = noTasksRemainingTv;
     }
 }
