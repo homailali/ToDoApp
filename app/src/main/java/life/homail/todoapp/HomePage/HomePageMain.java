@@ -7,9 +7,9 @@ import life.homail.todoapp.R;
 import life.homail.todoapp.SingleTon.SingleTon;
 public class HomePageMain extends AppCompatActivity{
     protected HomePageViews homePageViews;
-    private DeletedTasksDB deletedTasksDB;
-    private CompletedTasksDB completedTasksDB;
-    private RemainingTasksDB remainingTasksDB;
+    private DeletedTasksDB deletedTasksDB=new DeletedTasksDB(this);
+    private CompletedTasksDB completedTasksDB=new CompletedTasksDB(this);
+    private RemainingTasksDB remainingTasksDB=new RemainingTasksDB(this);
     protected NavBtnHandler navBtnHandler=new NavBtnHandler(this);
     protected PlusTaskBtnHandler plusTaskBtnHandler=new PlusTaskBtnHandler(this);
     @Override
@@ -33,9 +33,6 @@ public class HomePageMain extends AppCompatActivity{
 
     private void createSomeObjects(){
         this.homePageViews=new HomePageViews(this);
-        this.deletedTasksDB=new DeletedTasksDB(this);
-        this.completedTasksDB=new CompletedTasksDB(this);
-        this.remainingTasksDB=new RemainingTasksDB(this);
     }
 
     @Override

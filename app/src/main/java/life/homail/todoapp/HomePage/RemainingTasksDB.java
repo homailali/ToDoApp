@@ -10,6 +10,7 @@ import life.homail.todoapp.Model.TaskModel;
 public class RemainingTasksDB extends SQLiteOpenHelper {
     // fields
     private static final Integer DB_VERSION=1;
+    private final static String ID_COLUMN_NAME="idColumn";
     private final static String TABLE_NAME="RemainingTasksTable";
     private final static String ACTUAL_TASKS_COLUMN_NAME="RemainingTasks";
     private static final String DB_NAME="RemainingTasksDB";
@@ -22,6 +23,7 @@ public class RemainingTasksDB extends SQLiteOpenHelper {
         String query=
                 "create table "+TABLE_NAME+
                         "("+
+                        ID_COLUMN_NAME+" integer primary key autoincrement ,"+
                         ACTUAL_TASKS_COLUMN_NAME+" text"
                         +")"
                 ;
@@ -43,8 +45,9 @@ public class RemainingTasksDB extends SQLiteOpenHelper {
         Cursor cursor=sqLiteDatabase.rawQuery("select * from "+TABLE_NAME,null);
         if (cursor.moveToFirst()){
             do {
+                int taskNumber=cursor.getInt(0);
                 String completedTask= cursor.getString(1);
-                TaskModel taskModel =new TaskModel(completedTask);
+                TaskModel taskModel =new TaskModel(completedTask,taskNumber);
                 returnList.add(taskModel);
             } while (cursor.moveToNext());
         }
@@ -54,10 +57,8 @@ public class RemainingTasksDB extends SQLiteOpenHelper {
     }
     public boolean deleteRemainingTaskFromDB(TaskModel taskModel){
         SQLiteDatabase sqLiteDatabase=super.getWritableDatabase();
-        long temp=sqLiteDatabase.delete(TABLE_NAME,ACTUAL_TASKS_COLUMN_NAME+"=?",new String[]{taskModel.getActualTask()});
+        long temp=sqLiteDatabase.delete(TABLE_NAME,ID_COLUMN_NAME+"=?",new String[]{String.valueOf(taskModel.getTaskNumber())});
         sqLiteDatabase.close();
         return temp!=0;
     }
-
-
 }
