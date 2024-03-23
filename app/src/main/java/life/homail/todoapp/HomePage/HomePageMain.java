@@ -6,11 +6,11 @@ import android.util.Log;
 import life.homail.todoapp.R;
 import life.homail.todoapp.SingleTon.SingleTon;
 public class HomePageMain extends AppCompatActivity{
-    protected HomePageViews homePageViews;
+    private HomePageViews homePageViews;
+    private NavBtnHandler navBtnHandler=new NavBtnHandler(this);
     private DeletedTasksDB deletedTasksDB=new DeletedTasksDB(this);
     private CompletedTasksDB completedTasksDB=new CompletedTasksDB(this);
     private RemainingTasksDB remainingTasksDB=new RemainingTasksDB(this);
-    protected NavBtnHandler navBtnHandler=new NavBtnHandler(this);
     protected PlusTaskBtnHandler plusTaskBtnHandler=new PlusTaskBtnHandler(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,5 +68,29 @@ public class HomePageMain extends AppCompatActivity{
 
     public void setRemainingTasksDB(RemainingTasksDB remainingTasksDB) {
         this.remainingTasksDB = remainingTasksDB;
+    }
+
+    public HomePageViews getHomePageViews() {
+        return homePageViews;
+    }
+
+    public void setHomePageViews(HomePageViews homePageViews) {
+        this.homePageViews = homePageViews;
+    }
+
+    public NavBtnHandler getNavBtnHandler() {
+        return navBtnHandler;
+    }
+
+    public void setNavBtnHandler(NavBtnHandler navBtnHandler) {
+        this.navBtnHandler = navBtnHandler;
+    }
+
+    public PlusTaskBtnHandler getPlusTaskBtnHandler() {
+        return plusTaskBtnHandler;
+    }
+
+    public void setPlusTaskBtnHandler(PlusTaskBtnHandler plusTaskBtnHandler) {
+        this.plusTaskBtnHandler = plusTaskBtnHandler;
     }
 }

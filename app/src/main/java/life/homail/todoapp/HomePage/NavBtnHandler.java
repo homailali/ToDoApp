@@ -19,11 +19,11 @@ public class NavBtnHandler implements View.OnClickListener{
 
 
     private void findTheButtonClicked(View view){
-        if (view.getId()==this.homePageMain.homePageViews.navDeletedTasks.getId()){
+        if (view.getId()==this.homePageMain.getHomePageViews().navDeletedTasks.getId()){
             this.changeView(DeletedTasksMain.class);
-        } else if (view.getId()==this.homePageMain.homePageViews.navCompletedTasks.getId()){
+        } else if (view.getId()==this.homePageMain.getHomePageViews().navCompletedTasks.getId()){
             this.changeView(CompletedTasksMain.class);
-        } else if (view.getId()==this.homePageMain.homePageViews.navRemainingTasks.getId()){
+        } else if (view.getId()==this.homePageMain.getHomePageViews().navRemainingTasks.getId()){
             this.changeView(RemainingTasksMain.class);
         }
     }

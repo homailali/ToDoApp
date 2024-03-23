@@ -41,8 +41,8 @@ public class HomePageViews {
         this.plusTaskBtn.setOnClickListener(this.homePageMain.plusTaskBtnHandler);
     }
     private void setEventHandlerForNavBtn(){
-        this.navDeletedTasks.setOnClickListener(this.homePageMain.navBtnHandler);
-        this.navCompletedTasks.setOnClickListener(this.homePageMain.navBtnHandler);
-        this.navRemainingTasks.setOnClickListener(this.homePageMain.navBtnHandler);
+        this.navDeletedTasks.setOnClickListener(this.homePageMain.getNavBtnHandler());
+        this.navCompletedTasks.setOnClickListener(this.homePageMain.getNavBtnHandler());
+        this.navRemainingTasks.setOnClickListener(this.homePageMain.getNavBtnHandler());
     }
 }

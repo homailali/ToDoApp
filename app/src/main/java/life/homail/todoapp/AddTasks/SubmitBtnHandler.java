@@ -19,15 +19,15 @@ public class SubmitBtnHandler implements View.OnClickListener {
        this.addTask();
     }
     private void addTask(){
-        if (String.valueOf(this.addTasksMain.addTaskView.textInputEditText.getText()).isBlank()) {
+        if (String.valueOf(this.addTasksMain.addTaskView.editText.getText()).isBlank()) {
             MyToast.makeToast("Invalid task",this.addTasksMain);
         } else {
-            TaskModel taskModel=new TaskModel(String.valueOf(this.addTasksMain.addTaskView.textInputEditText.getText()));
+            TaskModel taskModel=new TaskModel(String.valueOf(this.addTasksMain.addTaskView.editText.getText()));
             boolean bool=SingleTon.getSingleTon().getHomePageMain().getRemainingTasksDB().addRemainingTaskToDB(taskModel);
             if (bool){
                 MyToast.makeToast("Task added",this.addTasksMain);
                 SingleTon.getSingleTon().setRemainingTasksArr(SingleTon.getSingleTon().getHomePageMain().getRemainingTasksDB().getAllRemainingTasksFromDB());
-                this.addTasksMain.addTaskView.textInputEditText.setText(null);
+                this.addTasksMain.addTaskView.editText.setText(null);
             } else MyToast.makeToast("Error adding the task",this.addTasksMain);
         }
     }
