@@ -23,23 +23,40 @@ public class DtAdapter extends RecyclerView.Adapter<DtAdapter.ViewHolder>{
     }
     // Bind Settings
     public void onBindViewHolder(ViewHolder holder,int position){
-        holder.userTasks.setText(SingleTon.getSingleTon().getDeletedTasksArr().get(position).getActualTask());
-        holder.restoreBtn.setOnClickListener(e->this.deletedTasksMain.getDtRestoreBtnHandler().DtRestoreBtnHandlerMain(SingleTon.getSingleTon().getDeletedTasksArr().get(position)));
-        holder.deleteBtn.setOnClickListener(e->this.deletedTasksMain.getDtDeleteBtnHandler().dtDeleteBtnHandlerMain(SingleTon.getSingleTon().getDeletedTasksArr().get(position)));
+        this.setTextOnFields(holder,position);
+        this.setEventHandlers(holder,position);
     }
+
+
+    private void setTextOnFields(ViewHolder holder,int position){
+        holder.userTasks.setText(SingleTon.getSingleTon().getDeletedTasksArr().get(position).getActualTask());
+        holder.timeTv.setText(SingleTon.getSingleTon().getDeletedTasksArr().get(position).getTime());
+        holder.dateTv.setText(SingleTon.getSingleTon().getDeletedTasksArr().get(position).getDate());
+    }
+
+    private void setEventHandlers(ViewHolder holder,int position){
+        holder.restoreBtn.setOnClickListener(e->this.deletedTasksMain.getDtRestoreBtnHandler().DtRestoreBtnHandlerMain(position));
+        holder.deleteBtn.setOnClickListener(e->this.deletedTasksMain.getDtDeleteBtnHandler().dtDeleteBtnHandlerMain(position));
+    }
+
+
     // BindSettingsEnd
     public int getItemCount(){
         return SingleTon.getSingleTon().getDeletedTasksArr().size();
     }
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView userTasks;
         Button deleteBtn;
         Button restoreBtn;
+        TextView timeTv;
+        TextView dateTv;
         public ViewHolder (View itemView){
             super(itemView);
             this.userTasks=itemView.findViewById(R.id.userTask);
             this.deleteBtn=itemView.findViewById(R.id.deleteBtn);
             this.restoreBtn=itemView.findViewById(R.id.restoreBtn);
+            this.timeTv=itemView.findViewById(R.id.timeTv);
+            this.dateTv=itemView.findViewById(R.id.dateTv);
         }
 
     }

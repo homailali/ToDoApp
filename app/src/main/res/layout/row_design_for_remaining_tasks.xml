@@ -3,75 +3,116 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="wrap_content"
-    android:background="#373F47"
+    android:background="@color/black"
     >
 
-    <Button
-        android:id="@+id/deleteBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#373F47"
-        android:drawableTop="@drawable/delete"
-        android:paddingTop="9dp"
-        app:cornerRadius="10dp"
-        app:rippleColor="#20FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/restoreBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="#373F47"
-        android:paddingTop="9dp"
-        android:drawableTop="@drawable/taskdone"
-        app:cornerRadius="10dp"
-        app:rippleColor="#20FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/userTask"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/chewy"
-        android:gravity="center"
-        android:text="Hy homail i know there is a issue between you chosing java or kotlin but stick with java do not wast your time with kotlin"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editBtn" />
-
     <View
-        android:layout_width="match_parent"
+        android:id="@+id/view"
+        android:layout_width="0dp"
         android:layout_height="5dp"
         android:background="#FFDBBE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/editBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/greyAppMainColor"
-        android:paddingTop="9dp"
-        android:drawableTop="@drawable/edit_drawable"
-        app:rippleColor="@color/btnHoverColor"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/restoreBtn"
-        app:layout_constraintEnd_toStartOf="@+id/restoreBtn"
-        app:layout_constraintStart_toEndOf="@+id/deleteBtn"
-        app:layout_constraintTop_toTopOf="@+id/deleteBtn" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/greyAppMainColor"
+        android:paddingStart="15dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#373F47"
+            android:drawableTop="@drawable/delete"
+            android:paddingTop="9dp"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/editBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="#20FFFFFF" />
+
+        <Button
+            android:id="@+id/restoreBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#373F47"
+            android:drawableTop="@drawable/taskdone"
+            android:paddingTop="9dp"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/editBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="#20FFFFFF" />
+
+        <TextView
+            android:id="@+id/userTask"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="Hy homail i know there is a issue between you chosing java or kotlin but stick with java do not wast your time with kotlin"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timeTv" />
+
+        <TextView
+            android:id="@+id/timeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="7:18 Am"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/dateTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deleteBtn" />
+
+        <TextView
+            android:id="@+id/dateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="24/3/2024"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/timeTv"
+            app:layout_constraintTop_toBottomOf="@+id/restoreBtn" />
+
+        <Button
+            android:id="@+id/editBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/greyAppMainColor"
+            android:drawableTop="@drawable/edit_drawable"
+            android:paddingTop="9dp"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/restoreBtn"
+            app:layout_constraintEnd_toStartOf="@+id/restoreBtn"
+            app:layout_constraintStart_toEndOf="@+id/deleteBtn"
+            app:layout_constraintTop_toTopOf="@+id/deleteBtn"
+            app:rippleColor="@color/btnHoverColor" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

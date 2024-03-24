@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/baloo_paaji"
+        android:fontFamily="@font/roboto_bold"
         android:text="Remaining Tasks"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
                 android:backgroundTint="#373F47"
                 android:drawableTop="@drawable/home"
                 android:paddingTop="15dp"
-                app:cornerRadius="0dp"
+                app:cornerRadius="10dp"
                 app:rippleColor="#20FFFFFF"
             />
 
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="3000dp"
-        android:fontFamily="@font/baloo_paaji"
+        android:fontFamily="@font/roboto"
         android:lineSpacingExtra="-13dp"
         android:text="No tasks remaining"
         android:textSize="25sp"

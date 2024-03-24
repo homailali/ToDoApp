@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/baloo_paaji"
+        android:fontFamily="@font/roboto_bold"
         android:text="To Do App"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,8 +23,8 @@
         android:id="@+id/aboutAuthorsHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
-        android:fontFamily="@font/baloo_paaji"
+        android:layout_marginTop="-5dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="About Authors"
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,10 +36,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:fontFamily="@font/antic"
+        android:fontFamily="@font/roboto"
         android:gravity="center_horizontal"
-
         android:text="Hy! 🖐 i am homail ali an inspiring java developer i created this app to remind me about the tasks i need to do still this app needs a lot of modifications but i am working on it so keep in touch to contact me you can message at homailali56@Gmail.com"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,7 @@
                 android:layout_height="match_parent"
                 android:paddingTop="15dp"
                 android:drawableTop="@drawable/remainingtasks"
-                app:cornerRadius="0dp"
+                app:cornerRadius="10dp"
                 app:rippleColor="#20FFFFFF"
                 />
             <Button
@@ -81,7 +81,7 @@
                 android:layout_height="match_parent"
                 android:paddingTop="15dp"
                 android:drawableTop="@drawable/completedtasks"
-                app:cornerRadius="0dp"
+                app:cornerRadius="10dp"
                 app:rippleColor="#20FFFFFF"
                 />
             <Button
@@ -91,7 +91,7 @@
                 android:layout_height="match_parent"
                 android:paddingTop="15dp"
                 android:drawableTop="@drawable/deletedtasks"
-                app:cornerRadius="0dp"
+                app:cornerRadius="10dp"
                 app:rippleColor="#20FFFFFF"
                 />
         </LinearLayout>
@@ -106,7 +106,7 @@
         android:backgroundTint="#C1373F47"
         android:drawableTop="@drawable/add"
         android:paddingTop="12dp"
-        app:cornerRadius="15dp"
+        app:cornerRadius="10dp"
         app:rippleColor="#20FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -119,7 +119,7 @@
         android:text="Deleted : 0"
         android:textSize="20dp"
         android:gravity="center"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/roboto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aboutAuthorsDetail" />
@@ -131,7 +131,7 @@
         android:text="Completed : 0"
         android:textSize="20dp"
         android:gravity="center"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/roboto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noOfDeleted" />
@@ -143,7 +143,7 @@
         android:text="Remaining : 0"
         android:textSize="20dp"
         android:gravity="center"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/roboto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noOfCompleted" />

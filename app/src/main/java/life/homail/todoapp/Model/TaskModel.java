@@ -2,15 +2,17 @@ package life.homail.todoapp.Model;
 
 public class TaskModel {
     private String actualTask;
-    private int taskNumber;
+    private long taskNumber;
+    private String time;
+    private String date;
 
-    public TaskModel(String actualTask, int taskNumber) {
+
+
+    public TaskModel(long taskNumber,String actualTask, String time, String date) {
         this.actualTask = actualTask;
         this.taskNumber = taskNumber;
-    }
-
-    public TaskModel(String actualTask) {
-        this.actualTask = actualTask;
+        this.time = time;
+        this.date = date;
     }
 
     public String getActualTask() {
@@ -22,11 +24,27 @@ public class TaskModel {
     }
 
 
-    public int getTaskNumber() {
+    public long getTaskNumber() {
         return taskNumber;
     }
 
-    public void setTaskNumber(int taskNumber) {
+    public void setTaskNumber(long taskNumber) {
         this.taskNumber = taskNumber;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
